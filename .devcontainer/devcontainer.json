@@ -1,0 +1,40 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "mads-hartmann.bash-ide-vscode",
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "DavidAnson.vscode-markdownlint",
+          "GitHub.copilot",
+          "ms-azuretools.vscode-docker",
+    ]
+      }
+    },
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "features": {
+      "ghcr.io/devcontainers/features/python:1.1.0": {},
+      "ghcr.io/devcontainers/features/node:1.3.0": {},
+      "ghcr.io/devcontainers/features/github-cli:1.0.10": {},	    
+      "ghcr.io/devcontainers/features/docker-in-docker:2.5.0": {},
+      "ghcr.io/devcontainers/features/common-utils:2.1.2": {},
+      "ghcr.io/lukewiwa/features/shellcheck:0.2.3": {},
+      "ghcr.io/devcontainers-contrib/features/maven-sdkman:2": {},
+      "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/devcontainers/features/desktop-lite:1": {}
+    },
+    "forwardPorts": [6080],
+    "portsAttributes": {
+      "6080": {
+        "label": "desktop"
+      }
+    },
+	// Mount aws and github credentials into the container
+	"mounts": [
+		"source=${env:HOME}/.aws,target=/root/.aws,type=bind",
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
+		"source=${localEnv:HOME}/.config/gh,target=/home/vscode/.config/gh,type=bind"
+	  ],
+    "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh > postCreateCommand.log"
+  }
