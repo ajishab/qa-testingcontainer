@@ -1,8 +1,9 @@
 {
   "name": "QA DevContainer",
-  // "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-  "dockerFile": "Dockerfile",
-  "runArgs": ["--init"],
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  //"dockerFile": "Dockerfile",
+  //"runArgs": ["--init"],
+ // "runArgs": ["--shm-size=1g"],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -28,7 +29,7 @@
     "ghcr.io/lukewiwa/features/shellcheck:0.2.3": {},
     "ghcr.io/devcontainers-contrib/features/maven-sdkman:2": {},
     "ghcr.io/devcontainers/features/aws-cli:1": {},
-      "ghcr.io/devcontainers/features/desktop-lite:1": {}
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
   },
   "forwardPorts": [6080, 9299],
   "portsAttributes": {
@@ -45,5 +46,5 @@
   "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
   "source=${localEnv:HOME}/.config/gh,target=/home/vscode/.config/gh,type=bind"
   ],
-  "postCreateCommand": "/bin/bash -ex ./.devcontainer/setusp.sh"
+  "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh"
 }
