@@ -45,5 +45,5 @@
   "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
   "source=${localEnv:HOME}/.config/gh,target=/home/vscode/.config/gh,type=bind"
   ],
-  "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh"
+  "postCreateCommand": "/bin/bash -ex ./.devcontainer/setusp.sh"
 }
