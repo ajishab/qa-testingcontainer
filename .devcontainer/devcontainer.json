@@ -13,7 +13,8 @@
         "DavidAnson.vscode-markdownlint",
         "GitHub.copilot",
         "ms-azuretools.vscode-docker",
-        "ms-playwright.playwright"
+        "ms-playwright.playwright",
+        "ms-vscode.vscode-typescript-tslint-plugin"
   ]
     },
     "settings": {
@@ -46,5 +47,8 @@
   "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
   "source=${localEnv:HOME}/.config/gh,target=/home/vscode/.config/gh,type=bind"
   ],
+  "remoteEnv": {
+      "GH_CONFIG_DIR": "/home/vscode/.config/gh"
+  },
   "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh"
 }
